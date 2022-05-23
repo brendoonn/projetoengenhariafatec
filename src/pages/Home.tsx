@@ -3,30 +3,18 @@ import googleIconImg from '../assets/images/google-icon.svg'
 import logoPapelaria from "../assets/images/logoCaracas.png"
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-// import { useEffect } from 'react'
+import axios from 'axios'
+import { Index } from '../Backend/index'
 
-// import '../styles/global.scss'
 
 export function Home() {
 
-  // useEffect(() => {
-
-  //   const Stream =  [7, 10, 5, 10, 8, 3, 1, 4, 3, 3, 5, 1]
-  //   const repeat: number[] = []
-  //   const repeatB: number[] = []
-
+  const handleClickButton = () =>{ 
+    console.log("rodando1")
+    const gett= Index();
     
-  //   Stream.forEach((element) => {
-  //     if(!repeat.includes(element)) {
-  //       if(Stream[element] !== repeat[element]) {
-  //         repeat.push(element)
-  //       }
-  //     }
-  //    return console.log(repeat)
-  //  })
-
-  // })
-
+    
+  }
   const navigate = useNavigate()
   const {signInWithGoogle, user} = useAuth()
 
@@ -44,6 +32,31 @@ export function Home() {
       <main>
         <div className="main-container">
           <img className="logoPapelaria" src={logoPapelaria} alt="Papelaria Caraca`s" />
+          <div>
+              <br/>
+              <input 
+                type= "text" 
+                name="nameLogin" 
+                //onChange={handleChangeValues}
+              />
+              <input 
+                type= "text" 
+                name="password"
+                //onChange={handleChangeValues}
+              />
+              <br />
+              <button className='creat-login'onClick={() => handleClickButton()}>
+                Entrar
+              </button>
+
+          
+        </div>
+        
+          <button onClick={() => handleClickButton()} className="create-login">
+          
+              Entrar no sistema
+          </button> 
+        
           <button onClick={() => handleLogin()} className="create-login">
               <img src={googleIconImg} alt="Logo Google" />
               Faça Login com o Google
